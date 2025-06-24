@@ -17,8 +17,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin:
-      "https://habit-rabbit-frontend-3zvke7pzh-markimarks-projects.vercel.app",
+    origin: process.env.ORIGIN,
     credentials: true,
   }),
 );
