@@ -12,7 +12,9 @@ import { todosRounter } from "./routes/todo.route.js";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-const allowedOrigins = ["https://habit-rabbit-frontend.vercel.app"];
+const allowedOrigins = [
+  "https://habit-rabbit-frontend-2vgf32f4o-markimarks-projects.vercel.app",
+];
 
 app.use(cookieParser());
 
