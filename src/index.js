@@ -12,16 +12,30 @@ import { todosRounter } from "./routes/todo.route.js";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const allowedOrigins = ["https://habit-rabbit-frontend.vercel.app"];
 
 app.use(cookieParser());
 
+// app.use(
+//   cors({
+//     origin: "https://habit-rabbit-frontend.vercel.app",
+//     credentials: true,
+//   }),
+// );
+
 app.use(
   cors({
-    origin: "https://habit-rabbit-frontend.vercel.app",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
-
+app.options("*", cors());
 app.use(express.json());
 
 app.use(authRouter);
