@@ -9,11 +9,14 @@ import { Sequelize } from "sequelize";
 //   port: 5432,
 // });
 
-export const client = new Sequelize(process.env.DB_URL, {
-  dialect: "postgres",
-  protocol: "postgres",
-  logging: false, // optional
-});
+export const client = new Sequelize(
+  "postgresql://postgres:IYkdoVeAdwKjNyhRJXAiOhWnYqNsyMbn@nozomi.proxy.rlwy.net:18225/railway",
+  {
+    dialect: "postgres",
+    protocol: "postgres",
+    logging: false, // optional
+  },
+);
 
 client
   .authenticate()
