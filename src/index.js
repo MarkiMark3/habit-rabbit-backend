@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://habit-rabbit-frontend.vercel.app/",
     credentials: true,
   }),
 );
