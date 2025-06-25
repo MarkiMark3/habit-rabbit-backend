@@ -14,7 +14,7 @@ export const client = new Sequelize(
   {
     dialect: "postgres",
     protocol: "postgres",
-    logging: false, // optional
+    logging: true,
   },
 );
 

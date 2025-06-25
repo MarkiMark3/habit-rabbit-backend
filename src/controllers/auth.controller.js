@@ -161,7 +161,12 @@ const logout = async (req, res) => {
 
   const userData = jwtService.verifyRefresh(refreshToken);
 
-  res.clearCookie("refreshToken");
+  res.clearCookie("refreshToken", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    path: "/",
+  });
 
   if (userData) {
     await tokenService.remove(userData.id);
