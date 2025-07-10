@@ -25,6 +25,10 @@ const changeName = async (req, res) => {
 const getUser = async (req, res) => {
   const { refreshToken } = req.cookies;
 
+  if (!refreshToken) {
+    return res.status(401).json({ message: "Not authenticated" });
+  }
+
   const userToken = jwtService.verifyRefresh(refreshToken);
   const user = await userService.findByEmail(userToken.email);
   res.send(userService.normalize(user));

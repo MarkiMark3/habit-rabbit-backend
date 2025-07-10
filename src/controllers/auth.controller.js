@@ -125,6 +125,10 @@ const login = async (req, res) => {
 const refresh = async (req, res) => {
   const { refreshToken } = req.cookies;
 
+  if (!refreshToken) {
+    return res.status(401).json({ message: "Not authenticated" });
+  }
+
   const user = jwtService.verifyRefresh(refreshToken);
   const token = await tokenService.getByToken(refreshToken);
 
