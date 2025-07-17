@@ -33,7 +33,7 @@ function sendActivationEmail(email, token) {
 }
 
 function sendResetPassEmail(email) {
-  const href = `${process.env.CLIENT_URL}/${email}`;
+  const href = `${process.env.CLIENT_URL}/resetPassword/${email}`;
   const html = `
   <h1>Password Reset Email</h1>
   <a href=${href}>${href}</a>

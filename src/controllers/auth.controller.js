@@ -191,6 +191,8 @@ const resetPass = async (req, res) => {
   const { email } = req.params;
   const { password, confirmPassword } = req.body;
 
+  console.log(email);
+
   if (password !== confirmPassword) {
     throw ApiError.BadRequest("Passwords dont match");
   }
