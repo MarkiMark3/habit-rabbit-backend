@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer';
-import 'dotenv/config';
+import nodemailer from "nodemailer";
+import "dotenv/config";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -28,12 +28,12 @@ function sendActivationEmail(email, token) {
   return send({
     email,
     html,
-    subject: 'Activate your account',
+    subject: "Activate your account",
   });
 }
 
 function sendResetPassEmail(email) {
-  const href = `${process.env.CLIENT_URL}/resetPassword`;
+  const href = `${process.env.CLIENT_URL}/${email}`;
   const html = `
   <h1>Password Reset Email</h1>
   <a href=${href}>${href}</a>
@@ -42,7 +42,7 @@ function sendResetPassEmail(email) {
   return send({
     email,
     html,
-    subject: 'Reset Your Password',
+    subject: "Reset Your Password",
   });
 }
 
@@ -56,7 +56,7 @@ function sendChangeEmail(email) {
   return send({
     email,
     html,
-    subject: 'Change Your Email',
+    subject: "Change Your Email",
   });
 }
 
@@ -70,7 +70,7 @@ function sendOldEmailNotUsed(email) {
   return send({
     email,
     html,
-    subject: 'Email was changed',
+    subject: "Email was changed",
   });
 }
 

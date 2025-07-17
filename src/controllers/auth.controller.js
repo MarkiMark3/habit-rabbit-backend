@@ -188,14 +188,14 @@ const reset = async (req, res) => {
 };
 
 const resetPass = async (req, res) => {
-  const { refreshToken } = req.cookies;
+  const { email } = req.params;
   const { password, confirmPassword } = req.body;
 
   if (password !== confirmPassword) {
     throw ApiError.BadRequest("Passwords dont match");
   }
-  const userToken = jwtService.verifyRefresh(refreshToken);
-  const user = await userService.findByEmail(userToken.email);
+
+  const user = await userService.findByEmail(email);
 
   const hashedPass = await bcrypt.hash(password, 10);
 
