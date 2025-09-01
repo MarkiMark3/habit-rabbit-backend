@@ -22,6 +22,14 @@ app.use(
   }),
 );
 
+app.options(
+  "*",
+  cors({
+    origin: process.env.ORIGIN,
+    credentials: true,
+  }),
+);
+
 app.use(express.json());
 
 app.use(authRouter);
