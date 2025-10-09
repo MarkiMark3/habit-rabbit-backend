@@ -10,7 +10,7 @@ import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import cookieParser from "cookie-parser";
 import { todosRounter } from "./routes/todo.route.js";
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(cookieParser());
