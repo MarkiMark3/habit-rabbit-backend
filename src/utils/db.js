@@ -10,7 +10,7 @@ import { Sequelize } from "sequelize";
 // });
 
 export const client = new Sequelize(
-  "postgresql://postgres:yFrxqtDhgGvCkjFGXKnhYpXegRxVraSY@shortline.proxy.rlwy.net:36324/railway",
+  "postgresql://postgres:pZIpxbIrHLZEyZoNpmujcuBEczqHBHlV@ballast.proxy.rlwy.net:43323/railway",
   {
     dialect: "postgres",
     protocol: "postgres",
